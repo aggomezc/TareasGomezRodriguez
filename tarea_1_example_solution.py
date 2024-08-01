@@ -18,15 +18,16 @@ def operation_selector(num1, num2, op):
     elif op == operations[3]:
         return 0, num1 & num2
 
-l,g = operation_selector(True, 7, "-")
-print(l,g)
-#
+
 
 def calculo_promedio(lista_valores):
     if len(lista_valores)>10:
         return -90, None
 
-    if not all(isinstance(item, int) for item in lista_valores):
+    if not all(isinstance(item, int) and not isinstance(item, bool) for item in lista_valores):
         return -80, None
     
     return 0, sum(lista_valores)/len(lista_valores)
+n,g = calculo_promedio([1, True, 3, 4])
+print(g)
+
